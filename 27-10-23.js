@@ -1,4 +1,5 @@
 
+// CONDICIONALES: if, ifternario, switch
 
 let edad = 20 
 let acceso = edad => {
@@ -91,7 +92,7 @@ let totalAPagar = (vehículo, litrosConsumidos) => {
 
 let costo_viaje = totalAPagar('autobus', litrosConsumidos(30))
 console.log(costo_viaje)
-*/
+
 
 // función de costo del sandwich base
 
@@ -152,3 +153,122 @@ let sandwich = (sandwichBase, tipo_pan, adQueso, adTomate, adLechuga, adCebolla,
 let costo_sandwich = sandwich (sandwichBase('carne'), tipo_pan('negro'), adQueso(1), adTomate(1),
                                 adLechuga(0), adCebolla(1), adMayonesa(0), adMostaza(1))
 console.log(costo_sandwich)
+
+
+// esta función es para generar un número entre 1-10, incluyéndolos,
+// de forma randómica, que será un número secreto.
+// la función en gral es sacada de la web con mínimas modificaciones.
+
+let numeroRandomico = (min=1, max=10) => {
+
+    let numeroS = 0
+
+    min = Math.ceil(min); // Math.ceil() devuelve el entero mayor o igual
+                          // más próximo a un número dado.
+
+    max = Math.floor(max); // Math.floor() redondea un número dado hacia el número 
+                           // entero anterior
+    numeroS = Math.floor(Math.random() * (max - min + 1) + min);
+
+    return numeroS
+
+  }
+
+let numeroSecreto = numeroRandomico()
+console.log(numeroSecreto)
+
+// función para adivinar el número secreto
+
+let acertar_NSecreto = numero => {
+    if (numero === numeroSecreto) {
+        return 'felicitaciones, has acertado al número secreto'
+    } else {
+        return `vamo arriba la próxima sale!!, el número era ${numeroSecreto}`
+    }
+}
+
+console.log(acertar_NSecreto(3))
+
+// esta es otra versión de la función para adivinar el número secreto
+// usando el tipo de condicional ifternario
+
+let acertar_NSecreto = numero => numero === numeroSecreto? 'felicitaciones,\
+ has acertado al número secreto' : `vamo arriba la próxima sale!!,\
+  el número era ${numeroSecreto}`
+
+ console.log(acertar_NSecreto(3))
+
+// función para decidir si abrir o no el paracaídas
+
+ let abrirParacaidas = (velocidad, altura) => {
+
+    let paracaidas =''
+
+    if (velocidad < 1000 && altura >= 2000 && altura < 3000) {
+        paracaidas = 'abrir el paracaídas'
+    } else {
+        paracaidas = 'no abrir el paracaidas'
+    }
+
+    return paracaidas
+
+ }
+
+ console.log(abrirParacaidas(1000, 2000))
+
+
+ // switch, traductor
+
+let stringUno = 'arbol'
+
+switch(stringUno) {
+    case 'perro':
+        console.log('dog')
+        break
+    case 'casa':
+        console.log('home')
+        break
+    case 'pelota':
+        console.log('ball')
+        break
+    case 'arbol':
+        console.log('tree')
+        break
+    case 'genio':
+        console.log('genius')
+        break    
+    }
+
+
+// switch, opinión de películas
+
+let opinion = 're buena'
+
+switch(opinion) {
+    case 'muy mala':
+        console.log('calificaste la peli como muy mala, que pena')
+        break
+    case 'mala':
+        console.log('calificaste la peli como mala, es una lástima')
+        break
+    case 'mediocre':
+        console.log('calificaste la peli como mediocre, pudo ser peor')
+        break
+    case 'buena':
+        console.log('calificaste la peli como buean, que suerte te gustó')
+        break
+    case 'muy buena':
+        console.log('calificaste la peli como muy buena, que bien que\
+         la disfrutaste')
+        break
+    default:
+        console.log('ingresaste un valor inválido')    
+    }
+
+
+
+
+
+
+
+    
